@@ -149,3 +149,21 @@ function nextProblem() {
     return copy;
   }
   
+
+  document.getElementById("loadProblemFile").addEventListener("change", (event) => {
+    duration = parseInt(document.getElementById("duration").value) || 60;
+    const file = event.target.files[0];
+    if (!file) return;
+  
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      try {
+        problems = shuffleArray(JSON.parse(e.target.result)).slice(0, 50); // ← JSONとして読み込み
+        initGame(); // ← 通常通りゲームを始める
+      } catch (err) {
+        alert("JSONの読み込みに失敗しました");
+      }
+    };
+    reader.readAsText(file);
+  });
+  

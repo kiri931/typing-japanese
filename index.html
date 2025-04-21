@@ -3,20 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>記号タイピング練習</title>
+  <title>タイピング練習</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="home">
     <h1>記号タイピング練習</h1>
     <label>時間（秒）: <input type="number" id="duration" value="60"></label>
-    <label>難易度:
+    <!-- <label>難易度:
       <select id="difficulty">
         <option value="easy">簡単</option>
         <option value="normal" selected>普通</option>
         <option value="hard">難しい</option>
         <option value="pro">プログラミング用</option>
-      </select>
+      </select> -->
+    <label>難易度:
+      <input type="file" id="loadProblemFile" accept=".json">
     </label>
     <button id="startButton">スタート</button>
     <input type="file" id="loadFile" accept=".json">
