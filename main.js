@@ -82,7 +82,9 @@ function nextProblem() {
   }
   
   function downloadLog() {
+    const name = document.getElementById("userName").value.trim();
     const data = {
+      name,
       correctCount,
       wrongCount,
       accuracy: ((correctCount / (correctCount + wrongCount)) * 100 || 0).toFixed(2),
@@ -92,10 +94,11 @@ function nextProblem() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'typing_result.json';
+    a.download = `typing_result_${name || "noname"}.json`;
     a.click();
     URL.revokeObjectURL(url);
   }
+  
   
   function loadLogFile(event) {
     const file = event.target.files[0];
